@@ -38,7 +38,7 @@ def main(
         target_height_cm=target_height_cm,
         margin_mm=0,
         # fill_paths=False,  # for visualization
-        fill_paths=True,  # for xtools
+        fill_paths=True,  # for xtool
         osm_config=config["osm"],
         nswe_bounds=nswe_bounds,
     )

@@ -9,15 +9,15 @@ In short:
 
 ### 3d laser cut engraved wood maps
 
-The created .svg file is importable to **laser cutter and engraver machines** such as `xTools`.
+The created .svg file is importable to **laser cutter and engraver machines** such as the `xTool` `S1 40W laser` machine.
 
 | ![](media/camfrout_1.jpeg) | 
 |:--------------------------:| 
 | *Laser cut engraved map.*  |
 
-| ![](media/camfrout_2.jpeg) | 
-|:--------------------------:| 
-| *Laser cut engraved map.*  |
+|                               ![](media/camfrout_2.jpeg)                               | 
+|:--------------------------------------------------------------------------------------:| 
+| *Laser cut engraved map, using several layers of 3 mm and 1.5 mm lime plywood boards.* |
 
 ### Flat artworks
 
