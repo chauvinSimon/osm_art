@@ -1,0 +1,17 @@
+ignored/*
+!ignored/osm/
+ignored/osm/*
+!ignored/osm/place_your_osm_here.txt
+
+.idea
+
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv

@@ -1,0 +1,116 @@
+projects:
+  my_map:  # example to adjust!
+    nwes: [48.35303, -4.26463, -4.21785, 48.28679]
+    height_cm: 24
+
+  camfrout:
+    nwes: [48.33708, -4.28381, -4.22570, 48.28765]
+    # reducing width from 29cm to let space for overall border
+    width_cm: 28
+
+  zep:
+    nwes: [52.127837,12.018592,12.029729,52.123269]
+    width_cm: 30
+
+  rimini:
+    nwes: [44.08604, 12.56737, 12.58338, 44.06570]
+    height_cm: 30
+
+osm:
+  # Examples of stroke-dasharray
+  # "none"	 Solid line (default).
+  # "5"	     Dashes of length 5, with gaps of length 5 (single value is repeated).
+  # "5,2"	     Dash of length 5, gap of length 2.
+  # "10,5"	 Dash of 10, gap of 5.
+  # "2,2"	     Even dotted line (short dashes).
+  # "1,4"	     Sparse dotted line (short dash, long gap).
+  # "10,2,2,2" Dash of 10, gap of 2, dot (2), gap of 2 → “dash-dot” pattern.
+  # "8,4,2,4"	 Long dash, gap, short dash, gap → “dash-dot-dot”.
+
+  # Layer configuration
+  # todo: XTool doesn't actually support an arbitrary number of colors in SVG!
+  #  It maps any SVG stroke/fill color to one of 6 (or 8?) “cut/engrave” channels.
+  #  "black", "red", "orange", "yellow", "green", "cyan", "blue", "purple"
+  # todo: why is "orange" not detected by XTool?
+  layer_config:  # first element will be rendered at bottom
+    # [layer_name, stroke_color, stroke_width, fill_color, dasharray]
+
+    # for wood-carving:
+#    - ['coastlines', 'black', 0.1, 'none', 'none']  # coastline is treated as a simple lines. Therefore, stroke-width is ignored
+#    - ['rivers', 'blue', 1.0, 'none', 'none']
+#    - ['large_roads', 'red', 0.8, 'none', 'none']
+#    - ['medium_roads', 'red', 0.8, 'none', 'none']
+#    - ['small_roads', 'yellow', 0.6, 'none', 'none']
+#    - ['pedestrian_paths', 'green', 0.1, 'none', '1']  # <-- dashed
+#    - ['multi_use_trails', 'green', 0.1, 'none', '2,1']  # <-- dashed
+#    - ['buildings', 'purple', 0.1, 'brown', 'none']  # <-- filled
+
+    # for digital artwork
+    - ['water_bodies', 'DeepSkyBlue', 0.9, 'DeepSkyBlue', 'none']
+#    - ['fields', 'green', 0.9, 'green', 'none']
+    - ['beaches', 'gold', 0.2, 'Gold', 'none']
+    - ['coastlines', 'blue', 0.9, 'none', 'none']  # coastline is treated as a simple lines. Therefore, stroke-width is ignored
+#    - ['rivers', 'lightcyan', 0.6, 'none', 'none']
+    - ['small_roads', 'DimGray', 2, 'none', 'none']
+    - ['medium_roads', 'DarkGray', 2, 'none', 'none']
+    - ['large_roads', 'silver', 4, 'none', 'none']
+    - ['pedestrian_paths', 'silver', 0.8, 'none', '1']  # <-- dashed
+    - ['multi_use_trails', 'silver', 0.8, 'none', '2,1']  # <-- dashed
+    - [ 'buildings', 'black', 0.1, [ "Crimson","Tomato","Coral","Orange","Gold","Khaki","YellowGreen","LimeGreen","MediumSeaGreen","SeaGreen","Turquoise","MediumTurquoise","LightSeaGreen","CadetBlue","DeepSkyBlue","DodgerBlue","CornflowerBlue","RoyalBlue","MediumSlateBlue","SlateBlue","BlueViolet","DarkViolet","MediumOrchid","Orchid","PaleVioletRed","HotPink","DeepPink","Salmon","DarkOrange","Chocolate","Sienna", ], 'none' ]  # <-- filled
+#    - [ 'buildings', 'black', 0.1, [ "Hotpink", "Pink", "Violet" ], 'none' ]  # <-- filled
+
+      # Examples of stroke-dasharray
+      # "none"	 Solid line (default).
+      # "5"	     Dashes of length 5, with gaps of length 5 (single value is repeated).
+      # "5,2"	     Dash of length 5, gap of length 2.
+      # "10,5"	 Dash of 10, gap of 5.
+      # "2,2"	     Even dotted line (short dashes).
+      # "1,4"	     Sparse dotted line (short dash, long gap).
+      # "10,2,2,2" Dash of 10, gap of 2, dot (2), gap of 2 → “dash-dot” pattern.
+      # "8,4,2,4"	 Long dash, gap, short dash, gap → “dash-dot-dot”.
+
+  random_seed: 42
+
+  # for wood carving
+#  external_rect_colour: cyan
+#  background_colour: none
+#  bypass_river_fill: true
+
+  # for digital artwork
+  external_rect_colour: none
+  background_colour: black
+  bypass_river_fill: false
+
+  buffer:
+    # A line can be buffered into a thin Polygon strip (like a fat line)
+    # This creates an actual **closed polygon** around the road centerline, filled with the stroke color.
+    cap_style: "round"
+    # cap_style determines the shape of the buffer at the **endpoints** of your line:
+    # 'round' — Semicircular end caps (default)
+    # 'flat' — Square end caps
+    # 'square' — Extended square end caps (extends beyond endpoint by radius)
+    join_style: "round"
+    # join_style controls how corners in the buffered polygon are rendered:
+    # 'round' — Rounded joins (default)
+    # 'mitre' — Sharp, pointed joins (like a miter joint)
+    # 'bevel' — Flattened, beveled joins
+
+  road_types:
+    large_roads: [ "motorway", "trunk" ]
+    medium_roads: [ "primary", "secondary", "tertiary" ]
+    small_roads: [ "residential", "unclassified", "service", "pier"]
+#    hiking_paths: ["footway", "path", "track", "bridleway", "cycleway"]
+    pedestrian_paths: [ "footway", "path", "bridleway" ]
+    multi_use_trails: [ "track", "cycleway" ]
+
+name_categories:
+  - Streets/Roads
+  - Places
+  - Admin
+  - Rivers/Water
+  - Natural
+  - Buildings/Landmarks
+  - Amenities/Services
+  - Leisure/Tourism/Culture
+  - Utilities/Infrastructure
+  - Other

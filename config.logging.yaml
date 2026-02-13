@@ -1,0 +1,36 @@
+log_name_template: "{timestamp}.log"
+log_file_dir: "logs"
+
+version: 1
+disable_existing_loggers: False
+formatters:
+  simple:
+    format: "%(asctime)s - %(levelname)-8s - %(name)s - %(message)s"
+  colored:
+    (): colorlog.ColoredFormatter
+    format: "%(log_color)s%(asctime)s - %(levelname)-8s - %(name)s - %(message)s"
+    log_colors:
+      DEBUG:    "cyan"
+      INFO:     "green"
+      WARNING:  "yellow"
+      ERROR:    "red"
+      CRITICAL: "bold_red"
+handlers:  # Filter what **already-captured** messages get output to that specific destination
+  console:
+    class: logging.StreamHandler
+    level: DEBUG
+    formatter: colored  # Use the colored formatter for console output
+    stream: ext://sys.stdout
+  file:
+    class: logging.FileHandler
+    level: INFO
+    formatter: simple  # Use the simple formatter for file output
+    filename: "empty_name.log"  # will be overwritten
+loggers:  # Determine what gets **captured** by the logger
+  wood_engraving:
+    level: DEBUG
+    handlers: [ console, file ]
+    propagate: no  # If set to no, messages logged by this logger will not be passed to the root logger.
+root:
+  level: DEBUG
+  handlers: [ console, file ]
