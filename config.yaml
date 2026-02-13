@@ -35,7 +35,7 @@ osm:
   layer_config:  # first element will be rendered at bottom
     # [layer_name, stroke_color, stroke_width, fill_color, dasharray]
 
-    # for wood-carving:
+    # for wood laser-engraving:
 #    - ['coastlines', 'black', 0.1, 'none', 'none']  # coastline is treated as a simple lines. Therefore, stroke-width is ignored
 #    - ['rivers', 'blue', 1.0, 'none', 'none']
 #    - ['large_roads', 'red', 0.8, 'none', 'none']
@@ -71,7 +71,7 @@ osm:
 
   random_seed: 42
 
-  # for wood carving
+  # for wood laser-engraving
 #  external_rect_colour: cyan
 #  background_colour: none
 #  bypass_river_fill: true

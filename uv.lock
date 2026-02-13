@@ -1024,7 +1024,7 @@ wheels = [
 ]
 
 [[package]]
-name = "wood-carving"
+name = "osm_art"
 version = "0.1.0"
 source = { virtual = "." }
 dependencies = [

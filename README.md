@@ -3,7 +3,7 @@
 This repository helps create **your own artwork based on real geographic maps**.
 
 In short:
-> A python script converts a `.osm` file exported from **[`openstreetmap.org`](https://openstreetmap.org)** is converted to a `.svg` file.
+> A python script converts a `.osm` file exported from **[`openstreetmap.org`](https://openstreetmap.org)** to a `.svg` file.
 
 ## Applications: custom maps
 
@@ -71,18 +71,22 @@ projects:
     height_cm: 24
 ```
 
-decide the size in cm of the width or the heigh. Do set only one of them! Considering the capability of your machine.
+decide the size in cm of the width or the heigh. Do set only one of them!
 - For instance `height_cm: 24`
+
+adjust [`config.yaml`](config.yaml). In particular, decide which osm elements to keep and how to represent them. There are currently two predefined subsets:
+- "for wood laser-engraving"
+- "for digital artwork"
 
 run `python convert_osm_to_svg.py [PROJECT_NAME]` where `[PROJECT_NAME]` is the name of your project (`my_map` in my example).
 
 the script will create a `ignored/res/my_map` directory, with a svg (`my_map.svg`).
 
-you can visualise it your favourite program (e.g. web-browser or inkscape).
-- You can also manually edit the .svg, for instance using `inkscape`, to remove some elements that would be complicated to process for the wood-carving machine.
+you can visualise this .svf your favourite program (e.g. web-browser or inkscape).
+- You can also manually edit the .svg, for instance using `inkscape`, to remove some elements that would be complicated to process for the laser cutter and engraver machine.
 - The goal of the python script is to avoid tedious manual editing as much as possible. But some adjustments may still be required.
 
-the svg can be imported to `xTool Studio`.
+the .svg can be imported directly to `xTool Studio`.
 - If asked `The image is larger than the canvas. Scale down?` answer `No, keep originial size`.
 - The svg map may be outside the canvas. Just translate it to bring on the canvas. But no scaling is needed.
 - In `Layer and object list` you can define the settings (`Engrave` / `Cut`) for each layer.
@@ -160,7 +164,7 @@ INFO:utils_osm:Scale: 1km in reality = 2.164cm on map
 ---
 
 > What **area size** is appropriate?
-- Wood carving works best with small (~10 km² or less).
+- Wood engraving works best with small (~10 km² or less).
 - Especially nice for seashore.
 
 
